@@ -16,6 +16,8 @@ const testRoutes = require("./routes/testRoutes");
 app.use("/api/test", testRoutes);
 const transactionRoutes = require("./routes/transactionRoutes");
 app.use("/api/transactions", transactionRoutes);
+const dashboardRoutes = require("./routes/dashboardRoutes");
+app.use("/api/dashboard", dashboardRoutes);
 
 app.get("/", (req, res) => {
     res.send("API running...");
