@@ -84,15 +84,38 @@ Authorization : Bearer <token>
 
 ---
 
-## Example Response
+## Example Response(All responses present in postman documentation)
 
 ### Dashboard Summary
 
 ```json
-{
-  "totalIncome": 5000,
-  "totalExpense": 2000,
-  "netBalance": 3000
+"totalIncome": 230011,
+    "totalExpense": 7538785486,
+    "netBalance": -7538555475,
+    "categoryBreakdown": [
+        {
+            "_id": "Railways",
+            "total": 6768654986
+        }
+    ],
+    "recentTransactions": [
+        {
+            "_id": "69d0b125a314bc54972c4f58",
+            "user": {
+                "_id": "69cfc41b8410949f331e7eff",
+                "name": "Admin",
+                "email": "admin@gmail.com"
+            },
+            "amount": 6767676767,
+            "type": "expense",
+            "category": "Railways",
+            "date": "2026-04-04T06:35:17.765Z",
+            "note": "Serving in miltary",
+            "createdAt": "2026-04-04T06:35:17.779Z",
+            "updatedAt": "2026-04-04T06:35:17.779Z",
+            "__v": 0
+        }
+    ]
 }
 ```
 
