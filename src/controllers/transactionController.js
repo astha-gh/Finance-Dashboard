@@ -4,6 +4,17 @@ const Transaction = require("../models/Transaction");
 exports.createTransaction = async (req, res) => {
     try {
         const { amount, type, category, date, note } = req.body;
+        if (!amount || !type || !category) {
+            return res.status(400).json({ message: "All required fields must be provided" });
+        }
+
+        if (typeof amount !== "number") {
+            return res.status(400).json({ message: "Amount must be a number" });
+        }
+
+        if (!["income", "expense"].includes(type)) {
+            return res.status(400).json({ message: "Invalid transaction type" });
+        }
 
         const transaction = await Transaction.create({
             user: req.user._id,
@@ -14,7 +25,11 @@ exports.createTransaction = async (req, res) => {
             note
         });
 
-        res.status(201).json(transaction);
+        res.status(201).json({
+            success: true,
+            message: "Transaction created successfully",
+            data: transaction
+        });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -49,7 +64,11 @@ exports.getTransactions = async (req, res) => {
             .populate("user", "name email") // optional but strong signal
             .sort({ date: -1 });
 
-        res.status(200).json(transactions);
+        res.status(200).json({
+            success: true,
+            count: transactions.length, 
+            data: transactions
+        });
 
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -69,7 +88,11 @@ exports.updateTransaction = async (req, res) => {
             return res.status(404).json({ message: "Transaction not found" });
         }
 
-        res.json(transaction);
+        res.status(200).json({
+            success: true,
+            message: "Transaction updated",
+            data: transaction
+        });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -87,7 +110,11 @@ exports.deleteTransaction = async (req, res) => {
             return res.status(404).json({ message: "Transaction not found" });
         }
 
-        res.json({ message: "Transaction deleted" });
+        res.status(200).json({
+            success: true,
+            message: "Transaction deleted successfully",
+            data: {} // Returning an empty object is cleaner than no data at all
+        });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }

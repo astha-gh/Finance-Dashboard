@@ -23,6 +23,9 @@ app.get("/", (req, res) => {
     res.send("API running...");
 });
 
+const { errorHandler } = require("./middleware/errorMiddleware");
+app.use(errorHandler);
+
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         console.log("MongoDB connected");
@@ -31,3 +34,4 @@ mongoose.connect(process.env.MONGO_URI)
         });
     })
     .catch(err => console.log(err));
+
