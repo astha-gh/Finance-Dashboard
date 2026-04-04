@@ -6,21 +6,21 @@ This project demonstrates backend architecture, API design, role-based access co
 
 ---
 
-## 🌐 Live API
+## Live API
 
 Base URL:
 https://finance-dashboard-2-toci.onrender.com
 
 ---
 
-## 🧪 API Documentation
+##  API Documentation
 
 Postman Documentation:
 https://documenter.getpostman.com/view/39629641/2sBXiqDnyt
 
 ---
 
-## 🚀 Features
+## Features
 
 -  User Authentication (JWT-based)
 -  Role-Based Access Control (Admin, Analyst, Viewer)
@@ -32,7 +32,7 @@ https://documenter.getpostman.com/view/39629641/2sBXiqDnyt
 
 ---
 
-## 👥 Roles & Permissions
+## Roles & Permissions
 
 | Role     | Permissions |
 |----------|------------|
@@ -42,7 +42,7 @@ https://documenter.getpostman.com/view/39629641/2sBXiqDnyt
 
 ---
 
-## 🔐 Demo Credentials
+## Demo Credentials
 
 Use these credentials to quickly test the system:
 
@@ -77,14 +77,14 @@ Use these credentials to quickly test the system:
 
 ---
 
-## 🔑 Authentication
+## Authentication
 
 Protected routes require a JWT token: 
 Authorization : Bearer <token>
 
 ---
 
-## 📊 Example Response
+## Example Response
 
 ### Dashboard Summary
 
